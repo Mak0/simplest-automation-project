@@ -12,7 +12,7 @@ public class LocalWebDriverFactory implements WebDriverFactory {
     @Override
     public WebDriver create(String type) {
 
-        switch (WebDriverType.valueOf(type)) {
+        switch (WebDriverType.valueOf(type.toUpperCase())) {
             case CHROME:
                 return new ChromeDriver();
             case FIREFOX:
@@ -22,7 +22,7 @@ public class LocalWebDriverFactory implements WebDriverFactory {
             case SAFARI:
                 return new SafariDriver();
             default:
-                throw new RuntimeException("Such webdriver type is not supported");
+                throw new RuntimeException("Such webDriver type is not supported");
         }
     }
 }

@@ -11,7 +11,7 @@ public class WebDriverManager {
     public WebDriver getWebDriver(String runOnType, String webDriverType) {
         WebDriverFactory factory;
 
-        switch(RunOn.valueOf(runOnType)) {
+        switch(RunOn.valueOf(runOnType.toUpperCase())) {
             case LOCAL:
                 factory = new LocalWebDriverFactory();
                 break;
@@ -24,5 +24,12 @@ public class WebDriverManager {
         }
 
         return factory.create(webDriverType);
+    }
+
+    public void destroy(WebDriver driver) {
+        if (driver != null) {
+            driver.close();
+            driver.quit();
+        }
     }
 }
