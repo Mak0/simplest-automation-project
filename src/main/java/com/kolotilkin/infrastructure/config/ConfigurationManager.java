@@ -2,8 +2,10 @@ package com.kolotilkin.infrastructure.config;
 
 public class ConfigurationManager {
 
-    private static final String WEB_DRIVER_TYPE = "browser-type";
+    private static final String WEB_DRIVER_TYPE = "browserType";
     private static final String SCREEN_RESOLUTION = "screenResolution";
+
+    private static final String WEB_DRIVER_RUN_ON = "runOn";
 
     private static final String TEST_ENV = "testEnv";
 
@@ -14,7 +16,11 @@ public class ConfigurationManager {
     private ConfigurationManager() { }
 
     public String getWebDriverType() {
-        return getValueOrDefault(WEB_DRIVER_TYPE, "chrome");
+        return getValueOrDefault(WEB_DRIVER_TYPE, "CHROME");
+    }
+
+    public String getWebDriverRunOn() {
+        return getValueOrDefault(WEB_DRIVER_RUN_ON, "LOCAL");
     }
 
     public String getScreenResolution() {
